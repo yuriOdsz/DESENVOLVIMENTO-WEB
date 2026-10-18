@@ -19,7 +19,7 @@ Abra http://localhost:3000. Para produção: `npm run build` e `npm start`. Veri
 - Componentes locais shadcn/ui: Button (Radix Slot/CVA), Card e Skeleton, configurados em components.json.
 - React Hook Form, useFieldArray, Yup e resolvers: validação de campos e de cada experiência/formação.
 - React Input Mask Next: CPF, telefone e datas; Sonner: feedback; SweetAlert2: confirmação de exclusão, carregada sob demanda.
-- Como a versão exigida de React Input Mask Next usa `findDOMNode` (removido no React 19), o script `postinstall` aplica uma correção restrita às referências de inputs nativos. A versão está fixada; não use componentes filhos customizados nessa biblioteca sem rever a correção.
+- A cópia de React Input Mask Next em `src/vendor` mantém sua licença MIT e adapta as referências de inputs nativos ao React 19, incluindo a limpeza com `null`. O formulário importa essa cópia diretamente, sem modificar `node_modules` ou depender de `postinstall`. Componentes filhos customizados não são suportados nessa adaptação.
 - Lucide React, Next Image e imagens em public. Foto inicial local; upload fake com FileReader, redimensionamento e persistência como data URL, sem servidor de arquivos.
 - Formulário carregado com next/dynamic; dados locais e detalhes usam carregamento simulado com Skeleton.
 

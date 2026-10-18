@@ -7,11 +7,8 @@
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "postinstall": "node scripts/patch-input-mask.cjs",
     "test": "node scripts/check-validation.cjs && node scripts/check-input-mask.cjs",
-    "format": "prettier --write src scripts *.json *.ts *.mjs README.md",
-    "predev": "node scripts/patch-input-mask.cjs",
-    "prebuild": "node scripts/patch-input-mask.cjs"
+    "format": "prettier --write src scripts *.json *.ts *.mjs README.md"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.0",
@@ -29,7 +26,10 @@
     "sweetalert2": "^11.22.0",
     "tailwind-merge": "^3.3.0",
     "tailwindcss": "^4.1.0",
-    "yup": "^1.7.0"
+    "yup": "^1.7.0",
+    "invariant": "2.2.4",
+    "prop-types": "15.8.1",
+    "warning": "4.0.3"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",

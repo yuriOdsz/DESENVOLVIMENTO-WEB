@@ -3,12 +3,15 @@ const fs = require("node:fs");
 const path = require("node:path");
 const vm = require("node:vm");
 const assert = require("node:assert/strict");
-const root = path.dirname(
-  require.resolve("react-input-mask-next/package.json"),
-);
+const root = path.resolve("src/vendor");
 const source = fs.readFileSync(
-  path.join(root, "lib/react-input-mask.development.js"),
+  path.join(root, "react-input-mask-next.js"),
   "utf8",
+);
+assert.match(
+  fs.readFileSync('src/components/curriculo-form.tsx', 'utf8'),
+  /from "@\/vendor\/react-input-mask-next"/,
+  'The form must import the tracked React 19-compatible component',
 );
 const callback = source.match(
   /ref: function ref\(_ref\) \{([\s\S]*?)\n    \},/,
@@ -41,11 +44,7 @@ for (const forwarded of ["callback", "object"]) {
     );
   }
 }
-for (const file of [
-  "lib/react-input-mask.development.js",
-  "lib/react-input-mask.production.min.js",
-  "dist/react-input-mask.js",
-]) {
+for (const file of ["react-input-mask-next.js"]) {
   assert.doesNotMatch(
     fs.readFileSync(path.join(root, file), "utf8"),
     /\.findDOMNode\s*\(/,

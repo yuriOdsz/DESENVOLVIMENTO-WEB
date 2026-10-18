@@ -11,7 +11,7 @@ import {
   type Path,
 } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import InputMask from "react-input-mask-next";
+import InputMask from "@/vendor/react-input-mask-next";
 import { toast } from "sonner";
 import {
   Plus,
