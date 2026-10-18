@@ -8,8 +8,10 @@
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "postinstall": "node scripts/patch-input-mask.cjs",
-    "test": "node scripts/check-validation.cjs",
-    "format": "prettier --write src scripts *.json *.ts *.mjs README.md"
+    "test": "node scripts/check-validation.cjs && node scripts/check-input-mask.cjs",
+    "format": "prettier --write src scripts *.json *.ts *.mjs README.md",
+    "predev": "node scripts/patch-input-mask.cjs",
+    "prebuild": "node scripts/patch-input-mask.cjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.0",
