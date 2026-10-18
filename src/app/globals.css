@@ -1,0 +1,138 @@
+@import "tailwindcss";
+@theme inline {
+  --color-background: #f7f9f8;
+  --color-foreground: #172f31;
+  --font-sans: Arial, Helvetica, sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: #f7f9f8;
+  color: #172f31;
+  font-family: Arial, Helvetica, sans-serif;
+}
+body > div {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  min-height: 65vh;
+}
+.site-container {
+  width: min(1160px, calc(100% - 40px));
+  margin-inline: auto;
+}
+.nav-active {
+  color: #115e59;
+  position: relative;
+}
+.nav-active:after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: 3px;
+  background: #0f766e;
+}
+button,
+a,
+input,
+textarea {
+  touch-action: manipulation;
+}
+a,
+button {
+  cursor: pointer;
+}
+a:focus-visible {
+  outline: 2px solid #0f766e;
+  outline-offset: 5px;
+}
+input:not([type="file"]),
+textarea {
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  background: white;
+  padding: 12px 14px;
+  font-size: 14px;
+  color: #1e293b;
+  outline: none;
+}
+input:focus,
+textarea:focus {
+  border-color: #0f766e;
+  box-shadow: 0 0 0 3px #0f766e17;
+}
+input[aria-invalid="true"],
+textarea[aria-invalid="true"] {
+  border-color: #dc2626;
+}
+label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+.eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #0f766e;
+}
+.page-title {
+  font-size: clamp(30px, 4vw, 42px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.15;
+}
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+.muted {
+  color: #64748b;
+  line-height: 1.7;
+}
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 10px;
+  padding: 10px;
+  background: white;
+  z-index: 99;
+}
+.skip-link:focus {
+  top: 10px;
+}
+::selection {
+  background: #bce5d8;
+}
+@media (max-width: 640px) {
+  .site-container {
+    width: calc(100% - 32px);
+  }
+  header nav {
+    width: 100%;
+    justify-content: space-between;
+  }
+  header nav a {
+    font-size: 13px;
+  }
+}
